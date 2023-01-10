@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>freeCodeCamp Survey Form</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="container">
+        <h1 id="title">freeCodeCamp Survey Form</h1>
+        <p id="description">Thank you for taking the time to help us improve the platform</p>
+        <form id="survey-form">
+            <label id="name-label">Name <input id="name" type="text" placeholder="Enter your name" required></label>
+            <label id="email-label">Email <input id="email" type="email" placeholder="Enter your email" required></label>
+            <label id="number-label">Age (optional) <input id="number" type="number" placeholder="Age" min="13" max="120" required></label>
+            <label>
+                <p>Which option best describes your current role?</p>
+                <select id="dropdown">
+                    <option>Select current role</option>
+                    <option>Student</option>
+                    <option>Full time job</option>
+                </select>
+            </label>
+            <label>
+                <p>Would you recommend freeCodeCamp to a friend?</p>
+                <label><input type="radio" name="multi-1" value="N"> N</label>
+                <label><input type="radio" name="multi-1" value="S"> S</label>
+                <label><input type="radio" name="multi-1" value="O"> O</label>
+            </label>
+            <label>What would you like to see improved? (Check all that apply)</label>
+            <label><input type="checkbox" value="Front-End"> Front-End</label>
+            <label><input type="checkbox" value="Back-End"> Back-End</label>
+            <label><input type="checkbox" value="Full-Stacks"> Full-Stacks</label>
+            <label>Any comments or suggestions?</label>
+            <textarea></textarea>
+            <button type="submit" id="submit">Submit</button>
+        </form>
+        </div>
+    </body>
+</html>
