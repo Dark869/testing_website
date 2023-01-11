@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.get('/styles/style.css', (req, res) => {
-    res.sendFile(__dirname + 'public/styles/style.css');
+    res.sendFile(__dirname + '/public/styles/style.css');
 });
 
 //starting the server
