@@ -12,11 +12,11 @@ app.use(express.json());
 
 // Routes
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + '/web/index.html');
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 app.get('/styles/style.css', (req, res) => {
-    res.sendFile(__dirname + '/web/styles/style.css');
+    res.sendFile(__dirname + 'public/styles/style.css');
 });
 
 //starting the server
