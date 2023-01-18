@@ -1,25 +1,21 @@
-const express = require("express");
-const app = express();
-const morgan = require("morgan");
+import express from 'express';
+import morgan from "morgan";
 
-// Settings
-app.set('port', process.env.PORT || 3000);
+import {PORT} from './config.js';
+
+import indexHtml from './routes/main.routes.js';
+
+const app = express();
+
+// Routes
+app.use(indexHtml);
 
 // Middlewares
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
-// Routes
-app.get("/", (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
-});
-
-app.get('/styles/style.css', (req, res) => {
-    res.sendFile(__dirname + '/public/styles/style.css');
-});
-
 //starting the server
-app.listen(app.get('port'), () => {
-    console.log("Server running on port " + app.get('port'));
+app.listen(PORT, () => {
+    console.log("Server running on port " + PORT);
 });
