@@ -13,8 +13,6 @@ router.get("/", getIndexhtml);
 
 router.get("/styles/style.css", getCss);
 
-router.get("/favicon.ico");
-
 router.get("/data", getData);
 
 router.post("/insert", postInsertData);
