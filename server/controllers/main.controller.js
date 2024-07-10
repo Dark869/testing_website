@@ -8,6 +8,10 @@ export const getCss = async (req, res) => {
     res.sendFile(process.cwd() + "/client/src/public/styles/style.css");
 };
 
+export const getJs = async (req, res) => {
+    res.sendFile(process.cwd() + "/client/src/public/scripts/index.js");
+};
+
 export const getData = async (req, res) => {
     try {
         const [allData] = await pool.query(
