@@ -4,7 +4,8 @@ import {
     getCss,
     getData,
     postInsertData,
-    deleteData
+    deleteData,
+    getJs
 } from "../controllers/main.controller.js";
 
 const router = Router();
@@ -13,7 +14,7 @@ router.get("/", getIndexhtml);
 
 router.get("/styles/style.css", getCss);
 
-router.get("/favicon.ico");
+router.get("/scripts/index.js", getJs);
 
 router.get("/data", getData);
 

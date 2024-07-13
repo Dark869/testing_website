@@ -8,9 +8,9 @@ import {
 } from './config.js';
 
 export const pool = createPool({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: "Nevulosa12.",
-    database: "alquileres_xalapa"
+    host: DB_HOST,
+    port: DB_PORT,
+    user: DB_USER,
+    password: DB_PASSWORD,
+    database: DB_NAME,
 });

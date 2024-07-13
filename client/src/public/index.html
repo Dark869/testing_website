@@ -1,60 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>freeCodeCamp Survey Form</title>
-        <link rel="stylesheet" href="styles/style.css">
-        <link rel="icon" href="images/v3.ico" />
+        <title>Calculadora | Dark869</title>
+        <link rel="stylesheet" href="styles/style.css">      
     </head>
     <body>
-        <div class="container">
-            <header class="header">
-                <h1 id="title" class="text-center">freeCodeCamp Survey Form</h1>
-                <p id="description" class="text-center">Thank you for taking the time to help us improve the platform</p>
-            </header>
-            <form id="survey-form">
-                <div class="group-labels">
-                    <label id="name-label">Name <input id="name" type="text" placeholder="Enter your name" required></label>
-                </div>
-                <div class="group-labels">
-                    <label id="email-label">Email <input id="email" type="email" placeholder="Enter your email" required></label>
-                </div>
-                <div class="group-labels">
-                    <label id="number-label">Age (optional) <input id="number" type="number" placeholder="Age" min="13" max="120" required></label>
-                </div>
-                <div class="group-labels">
-                    <label>
-                        <p>Which option best describes your current role?</p>
-                        <select id="dropdown">
-                            <option>Select current role</option>
-                            <option>Student</option>
-                            <option>Full time job</option>
-                        </select>
-                    </label>
-                </div>
-                <div class="group-labels">
-                    <label>
-                        <p>Would you recommend freeCodeCamp to a friend?</p>
-                        <label><input class="inline" type="radio" name="multi-1" value="N"> Definitely</label>
-                        <label><input class="inline" type="radio" name="multi-1" value="S"> Maybe</label>
-                        <label><input class="inline" type="radio" name="multi-1" value="0"> Not sure</label>
-                    </label>
-                </div>
-                <div class="group-labels">
-                    <label>What would you like to see improved? (Check all that apply)</label>
-                    <div class="check-box">
-                        <label><input class="inline" type="checkbox" value="Front-End"> Front-End</label>
-                        <label><input class="inline" type="checkbox" value="Back-End"> Back-End</label>
-                        <label><input class="inline" type="checkbox" value="Full-Stacks"> Full-Stacks</label>
-                    </div>
-                </div>
-                <div class="group-labels">
-                <label>Any comments or suggestions?</label>
-                <textarea></textarea>
-                </div>
-                <button type="submit" id="submit">Submit</button>
-            </form>
+        <div class="calBox">
+            <div class="screan">
+                <p id="barCal">0</p>
+            </div>
+            <div class="buttons" id="op-bot">
+                <input class="btn-cal" type="button" id="btnDelAll" value="C">
+                <input class="btn-cal" type="button" id="btnPor" value="%">
+                <input class="btn-cal" type="button" id="btnDel" value="←">
+            </div>           
+            <div class="buttons" id="numbers-top">
+                <input class="btn-cal" type="button" id="btn7" value="7">
+                <input class="btn-cal" type="button" id="btn8" value="8">
+                <input class="btn-cal" type="button" id="btn9" value="9">
+                <input class="btn-cal" type="button" id="btnDiv" value="&divide;">
+            </div>
+            <div class="buttons" id="numbers-mid">
+                <input class="btn-cal" type="button" id="btn4" value="4">
+                <input class="btn-cal" type="button" id="btn5" value="5">
+                <input class="btn-cal" type="button" id="btn6" value="6">
+                <input class="btn-cal" type="button" id="btnMul" value="x">
+            </div>
+            <div class="buttons" id="numbers-bot">
+                <input class="btn-cal" type="button" id="btn1" value="1">
+                <input class="btn-cal" type="button" id="btn2" value="2">
+                <input class="btn-cal" type="button" id="btn3" value="3">
+                <input class="btn-cal" type="button" id="btnRes" value="-">
+            </div>
+            <div class="buttons" id="op-bot">
+                <input class="btn-cal" type="button" id="btn0" value="0">
+                <input class="btn-cal" type="button" id="btnIgu" value="=">
+                <input class="btn-cal" type="button" id="btnSum" value="+">
+            </div>
         </div>
+        <script src="scripts/index.js"></script>  
     </body>
 </html>

@@ -1,15 +1,15 @@
 import { pool } from "../db.js";
 
-export const getIndexhtml =  (req, res) => {
+export const getIndexhtml = async (req, res) => {
     res.sendFile(process.cwd() + "/client/src/public/index.html");
 };
 
-export const getCss = (req, res) => {
+export const getCss = async (req, res) => {
     res.sendFile(process.cwd() + "/client/src/public/styles/style.css");
 };
 
-export const getFavicon = (req, res) => {
-    res.sendFile(process.cwd() + "/client/src/public/images/v3.ico");
+export const getJs = async (req, res) => {
+    res.sendFile(process.cwd() + "/client/src/public/scripts/index.js");
 };
 
 export const getData = async (req, res) => {
