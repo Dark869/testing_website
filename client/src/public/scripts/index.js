@@ -1,94 +1,90 @@
 let buffer = "0";
 let total = 0;
-let previosOperator;
+let previousOperator;
 
 const barCal = document.querySelector("#barCal");
 
-function clickButtom(value){
-    if(isNaN(value)){
-        handleSybols(value);
+function clickButton(value) {
+    console.log(value);
+    if (isNaN(value)) {
+        handleSymbol(value);
     } else {
         handleNumbers(value);
     }
     barCal.innerText = buffer;
 }
 
-function handleSybols(symbol) {
+function handleSymbol(symbol){
     switch (symbol) {
         case "C":
             buffer = "0";
             total = 0;
             break;
+        case "=":
+            if (previousOperator === null) {
+                return;
+            }
+            flushOperation(parseInt(buffer));
+            previousOperator = null;
+            buffer = total;
+            break;
+        case "←":
+            if (buffer.length === 1){
+                buffer = "0";
+            } else {
+                buffer = buffer.slice(0, -1);
+            }
+            break;
+        case "+":
         case "-":
-            buffer += "-";
+        case "x":
+        case "÷":
+            handleMath(symbol);
             break;
     }
 }
 
-
-/*document.getElementById("btn1").addEventListener("click", function() {
-    let btn = document.getElementById("btn1").value;
-    barCal.innerText += btn;
-});
-document.getElementById("btn2").addEventListener("click", function() {
-    let btn = document.getElementById("btn2").value;
-    barCal.innerText += btn;
-});
-
-document.getElementById("btn3").addEventListener("click", function() {
-    let btn = document.getElementById("btn3").value;
-    barCal.innerText += btn;
-});
-
-document.getElementById("btn4").addEventListener("click", function() {
-    let btn = document.getElementById("btn4").value;
-    barCal.innerText += btn;
-});
-
-document.getElementById("btn5").addEventListener("click", function() {
-    let btn = document.getElementById("btn5").value;
-    barCal.innerText += btn;
-});
-
-document.getElementById("btn6").addEventListener("click", function() {
-    let btn = document.getElementById("btn6").value;
-    barCal.innerText += btn;
-});
-
-document.getElementById("btn7").addEventListener("click", function() {
-    let btn = document.getElementById("btn7").value;
-    barCal.innerText += btn;
-});
-
-document.getElementById("btn8").addEventListener("click", function() {
-    let btn = document.getElementById("btn8").value;
-    barCal.innerText += btn;
-});
-
-document.getElementById("btn9").addEventListener("click", function() {
-    let btn = document.getElementById("btn9").value;
-    barCal.innerText += btn;
-});
-document.getElementById("btn0").addEventListener("click", function() {
-    let btn = document.getElementById("btn0").value;
-    barCal.innerText += btn;
-});
-document.getElementById("btnDelAll").addEventListener("click", function() {
-    barCal.innerText = "0";
-});
-document.getElementById("btnDel").addEventListener("click", function() {
-    if (barCal.innerText.legnth > 1) {
-        barCal.innerText = barCal.innerText.slice(0, -1);
-    } else {
-        barCal.innerText = "0";
+function handleMath(symbol) {
+    if (buffer === "0") {
+        return;
     }
-});
-document.getElementById("btnIgu").addEventListener("click", function() {
-    let resoult = eval(barCal.innerText);
-    barCal.innerHTML = resoult;
-});
-document.getElementById("btnSum").addEventListener("click", function() {
-    let btn = document.getElementById("btnSum").value;
-    barCal.innerHTML += btn;
-});
-*/
+    const intBuffer = parseInt(buffer);
+
+    if (total === 0) {
+        total = intBuffer;
+    } else {
+        flushOperation(intBuffer);
+    }
+    previousOperator = symbol;
+    buffer = "0";
+}
+
+function flushOperation(intBuffer) {
+    if (previousOperator === "+") {
+        total += intBuffer;
+    } else if (previousOperator === "-") {
+        total -= intBuffer;
+    } else if (previousOperator === "x") {
+        total *= intBuffer;
+    } else if (previousOperator === "÷") {
+        total /= intBuffer;
+    }
+}
+
+function handleNumbers(number) {
+    if (buffer === "0") {
+        buffer = number;
+    } else {
+        buffer += number;
+    }
+}
+
+function init() {
+    document.querySelectorAll('.btn-cal').forEach(button => {
+        button.addEventListener("click", function(event) {
+            clickButton(event.target.value);
+        });
+    });
+}
+
+init();
